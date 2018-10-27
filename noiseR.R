@@ -78,4 +78,5 @@ make.noise <- function() {
 		}
 	r
 	}
+	Vectorize(f)
 }
