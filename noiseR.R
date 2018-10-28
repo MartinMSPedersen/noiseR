@@ -1,10 +1,18 @@
 # based on the noise function p5js.
+# which is based on
+# // http://mrl.nyu.edu/~perlin/noise/
+# // Adapting from PApplet.java
+# // which was adapted from toxi
+# // which was adapted from the german demo group farbrausch
+# // as used in their demo "art": http://www.farb-rausch.de/fr010src.zip
 
 make.noise <- function() {
 
 	perlin <- NULL
 
-	f <- function(x, y = 0, z = 0) {
+	f <- function(x, y = 0, z = 0, seed = 1, lod = 4, falloff = 0.5) {
+
+		set.seed(seed)
 
 		PERLIN_YWRAPB <- 4
 		PERLIN_YWRAP <- bitwShiftL(1,PERLIN_YWRAPB)
@@ -12,8 +20,16 @@ make.noise <- function() {
 		PERLIN_ZWRAP <- bitwShiftL(1,PERLIN_ZWRAPB)
 		PERLIN_SIZE <- 4095
 
-		perlin_octaves <- 4 	  # default to medium smooth
-		perlin_amp_falloff <- 0.5 # 50% reduction/octave
+		if (lod > 0) {
+			perlin_octaves = lod
+		} else {
+			perlin_octaves = 4	# default to medium smooth
+		}
+		if (falloff > 0) {
+			perlin_amp_falloff = falloff
+		} else {
+			perlin_amp_falloff <- 0.5 # 50% reduction/octave
+		}
 
 		scaled_cosine <- function(i) { 0.5*(1-cos(i*pi)) }
 
