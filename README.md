@@ -13,11 +13,17 @@ n <- make.noise()
 i <- 1:1000*0.01
 plot(n(i), type = 'l')
 ```
+![make noise example](https://github.com/MartinMSPedersen/noiseR/blob/master/pics/noise1.png)
+
+
 
 With this:
 ```R
 plot(runif(1000), type = 'l')
 ```
+
+![make noise example](https://github.com/MartinMSPedersen/noiseR/blob/master/pics/noise2.png)
+
 
 
 Perlin noise is a random sequence generator producing a more natural ordered, harmonic
