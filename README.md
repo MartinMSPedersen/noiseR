@@ -8,16 +8,16 @@ Perlin noise function in R
 This is based on the noise() function in p5js.
 
 Compare this:
-`
+```R
 n <- make.noise()
 i <- 1:1000*0.01
 plot(n(i), type = 'l')
-`
+```
 
 With this:
-`
+```R
 plot(runif(1000), type = 'l')
-`
+```
 
 
 Perlin noise is a random sequence generator producing a more natural ordered, harmonic
